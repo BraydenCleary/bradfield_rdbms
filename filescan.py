@@ -11,7 +11,7 @@ class Filescan(Iterator):
 
 	def __read_table(self):
 		rows = []
-		with open('./movie_lens_data/' + self.table_name + '.csv', newline='') as f:
+		with open('../ml-20m/' + self.table_name + '.csv', newline='') as f:
 			reader = csv.reader(f)
 			# skip header, I'm sure there's a more elegant way
 			next(reader)

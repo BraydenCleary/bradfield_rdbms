@@ -4,9 +4,12 @@ from distinct import Distinct
 from projection import Projection
 from selection import Selection
 from sort import Sort
+from limit import Limit
+from average import Average
+from count import Count
 
 class QueryExecutor:
-	VALID_ITERATOR_NODE_TYPES = ["PROJECTION", "SELECTION", "FILESCAN", "SORT", "DISTINCT"]
+	VALID_ITERATOR_NODE_TYPES = ["PROJECTION", "SELECTION", "FILESCAN", "SORT", "DISTINCT", "LIMIT", "AVERAGE", "COUNT"]
 
 	def __init__(self, parsed_query):
 		self.__parsed_query = parsed_query
@@ -45,10 +48,16 @@ class QueryExecutor:
 
 if __name__ == "__main__":
 	parsed_query = 	[
-		["PROJECTION", ["title"]],
-		["SORT", ["title"]],
-		["SELECTION", ["genres", "EQUALS", "Comedy"]],
-		["FILESCAN", ["movies"]]
+		# ["AVERAGE", []],
+		# ["LIMIT", ["10"]],
+		# ["PROJECTION", ["id"]],
+		# ["SORT", ["title"]],
+		# ["SELECTION", ["genres", "EQUALS", "Comedy"]],
+		["COUNT", []],
+		["DISTINCT", []],
+		["PROJECTION", ["movieId"]],
+		["SORT", ["movieId"]],
+		["FILESCAN", ["ratings"]]
 	]
 
 	executor = QueryExecutor(parsed_query)

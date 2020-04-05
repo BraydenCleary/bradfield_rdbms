@@ -10,7 +10,7 @@ class Sort(Iterator):
 		# How should I be thinking about schemas?
 		# I guess this will change once we start reading actual bytes
 		# But even then, this node is gonna have to know what byte offsets to keep
-		column_map = {"id": 0, "title": 1, "genres": 2}
+		column_map = {"userId": 0, "movieId": 1, "rating": 2, "timestamp": 3}
 		self.sort_by = column_map[self.args[0]]
 
 

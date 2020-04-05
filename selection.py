@@ -11,7 +11,7 @@ class Selection(Iterator):
 		# How should I be thinking about schemas?
 		# I guess this will change once we start reading actual bytes
 		# But even then, this node is gonna have to know what byte offsets to keep
-		self.column_map = {"id": 0, "title": 1, "genres": 2}
+		self.column_map = {"userId": 0, "movieId": 1, "rating": 2, "timestamp": 3}
 
 	def next(self):
 		next_from_child = self.child.next()
