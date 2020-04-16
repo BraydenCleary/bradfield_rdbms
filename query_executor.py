@@ -1,20 +1,12 @@
-from filescan import Filescan
-from sort import Sort
-from distinct import Distinct
-from projection import Projection
-from selection import Selection
-from sort import Sort
-from limit import Limit
-from average import Average
-from count import Count
-
 class QueryExecutor:
 	VALID_ITERATOR_NODE_TYPES = ["PROJECTION", "SELECTION", "FILESCAN", "SORT", "DISTINCT", "LIMIT", "AVERAGE", "COUNT"]
 
-	def __init__(self, parsed_query):
-		self.__parsed_query = parsed_query
-		self.__root = self.__build_iterator_node_linked_list()
+	def __init__(self, root_node):
+    self.__root = root_node
 		self.__result = self.__execute()
+
+  def get_root(self):
+    return self.__root
 
 	def get_result(self):
 		return self.__result
