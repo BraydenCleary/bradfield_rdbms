@@ -1,5 +1,5 @@
 class Iterator:
-    def __init__(self, func, depth_from_root):
+    def __init__(self, func, depth_from_root=0):
         self.children = []
         self.func = func
         self.depth_from_root = depth_from_root
@@ -10,7 +10,7 @@ class Iterator:
         return self.children
 
     def __str__(self):
-        return f"{self.depth_from_root * '  '}{self.__name__}"
+        return f"{self.depth_from_root * '  '}{type(self).__name__}"
 
     def next(self):
         # implement me in subclass 
